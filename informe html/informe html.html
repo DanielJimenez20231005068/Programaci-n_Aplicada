@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducción</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #87CEEB; color: black; margin: 0; padding: 0; display: flex; flex-direction: column; align-items: center; height: 100vh; }
+        .container { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); max-width: 90%; width: 1200px; text-align: center; margin-top: 100px; }
+        h1 { margin-bottom: 10px; }
+        p { font-size: 14px; line-height: 1.4; text-align: justify; }
+        .image-container { display: flex; justify-content: center; align-items: center; margin-top: 20px; margin-bottom: 30px; }
+        .image-container img { max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); width: 60%; max-width: 600px; }
+        .button-container { margin-top: 20px; }
+        .next-button, .back-button { padding: 10px 20px; font-size: 14px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer; text-decoration: none; margin: 5px; }
+        .next-button:hover, .back-button:hover { background-color: #0056b3; }
+        .next-page-container { display: none; background-color: white; padding: 50px; border-radius: 10px; width: 80%; max-width: 1400px; text-align: center; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); margin-top: 20px; }
+        .next-page-container h1 { margin-bottom: 20px; font-size: 24px; color: #333; }
+    </style>
+</head>
+<body>
+    <div class="container" id="page1">
+        <h1>Bienvenido</h1>
+        <p>
+            ¡Este es nuestro proyecto! Se trata de un brazo robótico diseñado para manipular y clasificar componentes electrónicos como resistencias, condensadores y otros dispositivos. Su función principal es recoger estos elementos y organizarlos en cajas específicas según su tipo. </p>
+        <p>
+            Actualmente, el brazo opera en una posición estática, pero en el futuro planeamos mejorar su diseño añadiendo movilidad a la base. Esto le permitirá alcanzar elementos en un área más amplia y optimizar el proceso de clasificación. Además, trabajaremos en la capacidad de agrupar los componentes con mayor precisión, como la separación de resistencias según sus códigos de colores. </p>
+        <p>
+            Otras mejoras potenciales incluyen la integración de visión artificial para identificar componentes automáticamente y la implementación de inteligencia artificial para optimizar su funcionamiento. ¡Estamos entusiasmados por el futuro de este proyecto y las posibilidades que ofrece! </p>
+        <div class="button-container">
+            <button onclick="mostrarSiguientePagina('page1', 'page2')" class="next-button">Siguiente Página</button>
+        </div>
+    </div>
+    <div class="image-container" id="brazo1">
+        <img src="Brazo1.jpg" alt="Imagen del brazo robótico" style="width: 50%; height: auto;">
+    </div>
+    <div class="next-page-container" id="page2">
+        <h1>Materiales</h1>
+        <p>En esta página se presentarán los materiales utilizados para la construcción del brazo robótico...</p>
+        <div class="image-container">
+            <figure><img src="Madera.jpg" alt="Madera" style="width: 100px; height: 100px;"><figcaption>Impresion 3d del brazo en madera: Material base para la estructura del brazo robótico.</figcaption></figure>
+            <figure><img src="oled.jpg" alt="Pantalla OLED" style="width: 100px; height: 100px;"><figcaption>Pantalla OLED: Utilizada para mostrar información del sistema.</figcaption></figure>
+            <figure><img src="Raspberry.jpg" alt="Raspberry Pi" style="width: 100px; height: 100px;"><figcaption>Raspberry Pi: Controlador central del sistema.</figcaption></figure>
+            <figure><img src="servos.jpg" alt="Servomotores" style="width: 100px; height: 100px;"><figcaption>Servomotores: Utilizados para el movimiento del brazo robótico.</figcaption></figure>
+            <figure><img src="rele.jpg" alt="Relé" style="width: 100px; height: 100px;"><figcaption>Relé: Control de dispositivos.</figcaption></figure>
+            <figure><img src="camara.jpg" alt="Cámara" style="width: 100px; height: 100px;"><figcaption>Cámara: Visión artificial del sistema.</figcaption></figure>
+            <figure><img src="electroiman.jpg" alt="Electroiman" style="width: 100px; height: 100px;"><figcaption>Electroimán: Para agarrar los elementos.</figcaption></figure>
+        </div>
+        <div class="button-container">
+            <button onclick="regresarPaginaAnterior('page2', 'page1')" class="back-button">Regresar</button>
+            <button onclick="mostrarSiguientePagina('page2', 'page3')" class="next-button">Siguiente Página</button>
+        </div>
+    </div>
+    <div class="next-page-container" id="page3">
+        <h1>Manual de funcionamiento</h1>
+        <p>En primera instancia, el enlace a continuación refleja una aproximación virtual de como se ve fisicamente el brazo (gemelo virtual), junto a su respectivo control:</p>
+        <a href="https://danieljimenez20231005068.github.io/Programacion_Aplicada/control_noi.html?Plat=316" target="_blank">https://danieljimenez20231005068.github.io/Programacion_Aplicada/control_noi.html?Plat=316</a>
+        <p>El funcionamiento de dicho gemelo virtual es muy parecido a como funciona el brazo fisicamente, ya que de hecho en un principio dicho gemelo está sincronizado con el brazo real.</p>
+        <p>Con lo que cada movimiento que se hace en el gemelo, también se refleja en el brazo físico.</p>
+        <p>El funcionamiento tanto del brazo como del gemelo consta de 2 sliders, uno controla el codo del brazo mientras que el otro controla el hombro.</p>
+        <p>Los botones del LED y quit son exclusivos del gemelo, y tienen el objetivo de mostrar o no las trayectorias que va tomando el brazo con cada movimiento.</p>
+        <p>Además de que dicho gemelo tiene la opción de mover la base para ver al brazo desde diferentes posiciones (función exclusiva del gemelo y no del brazo físico).</p>
+        <div class="image-container">
+            <img src="control.jpg" alt="Control del gemelo virtual" style="max-width: 200px; height: auto;">
+        </div>
+        <p><h1>Hombro</h1>Se encarga de mover el brazo superior en un rango de movimiento que varía entre -45° y 45°. Este movimiento es el que controla la rotación del brazo desde la base del hombro..</p>
+        <p><h1>Codo</h1>Permite la flexión del brazo inferior, controlando el antebrazo. Su rango de movimiento va de 0° a 90°, permitiendo que el antebrazo se mueva hacia arriba y hacia abajo.</p>
+        <div class="button-container">
+            <button onclick="regresarPaginaAnterior('page3', 'page2')" class="back-button">Regresar</button>
+            <button onclick="mostrarSiguientePagina('page3', 'page4')" class="next-button">Siguiente Página</button>
+        </div>
+    </div>
+    <div class="next-page-container" id="page4">
+        <h1>Mejoras adicionales al brazo físico</h1> <h1>Sincronización brazo-gemelo</h1> <p>Como mencionamos anteriormente, logramos que los movimientos del gemelo y del brazo fisico funcionaran desde los mismos sladers, haciendo que por ejemplo si muevo el hombro desde el gemelo este tambien se mueva en fisico.</p>
+        <p>Sin embargo y como aclaración, para lograr esto tuvimos que cambiar el gemelo virtual por uno en 2D para que la sincronización se pudiera correr en la raspberry. La siguiente imagen muestra el gemelo virtual en 2D:</p>
+        <div class="image-container"> <img src="gemelo.jpg" alt="Sincronización" style="max-width: 200px; height: auto;"></div>
+        <h1>Curvas de bezier</h1> <p>Son una familia de curvas paramétricas definidas por puntos de control que determinan su forma y suavidad.</p> <p>En concreto, agregamos la formula de las curvas de bezier a los servos, para que estos se movieran de forma mucho mas suave.</p>
+        <h1>Pantalla OLED</h1> <p>Esta pantalla tiene dibujados tanto el codo como el hombro del brazo, a su vez que estos dibujos se mueven a la par del brazo físico.</p>
+        <p>Esto con el objetivo de visualizar el movimiento del brazo desde otra perspectiva.</p> <p>El siguiente video nos muestra la sincronización del gemelo con ell brazo y la pantalla OLED</p>
+        <div class="image-container">
+            <video width="50%" controls>
+                <source src="oledvideo.mp4" type="video/mp4">
+                Tu navegador no soporta la etiqueta de video.
+            </video> </div>
+        <div class="button-container">
+            <button onclick="regresarPaginaAnterior('page4', 'page3')" class="back-button">Regresar</button>
+            <button onclick="mostrarSiguientePagina('page4', 'page5')" class="next-button">Siguiente Página</button>
+        </div>
+    </div>
+
+    <div class="next-page-container" id="page5">
+        <h1>Diagrama de bloques del codigo</h1>
+
+        <div class="block">
+            <div class="block-title">Conexión Wi-Fi</div>
+            <div class="block-content">
+                <p>Conexión a la red Wi-Fi utilizando las credenciales definidas.</p>
+                <div class="code-container">
+                    <code>
+                        wlan = network.WLAN(network.STA_IF)<br>
+                        wlan.active(True)<br>
+                        wlan.connect('FLIA RUBIANO_2G-Etb', '3105807039')<br>
+                        while not wlan.isconnected():<br>
+                        &nbsp;&nbsp;time.sleep(1)
+                    </code>
+                </div>
+            </div>
+         </div>
+        <!-- Bloque de Control de Servos -->
+        <div class="block">
+            <div class="block-title">Control de Servos</div>
+            <div class="block-content">
+                <p>Control de los servos del hombro y codo utilizando señales PWM.</p>
+                <div class="code-container">
+                    <code>
+                        servo_hombro = machine.PWM(machine.Pin(0))<br>
+                        servo_codo = machine.PWM(machine.Pin(1))<br>
+                        def move_servo(servo, angle):<br>
+                        &nbsp;&nbsp;servo.duty_u16(int((angle / 180) * 65535))
+                    </code>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Bloque de Interpolación de Bézier -->
+        <div class="block">
+            <div class="block-title">Interpolación Cúbica de Bézier</div>
+            <div class="block-content">
+                <p>Movimiento suave de servos mediante interpolación cúbica.</p>
+                <div class="code-container">
+                    <code>
+                        def bezier_interpolation(t, p0, p1, p2):<br>
+                        &nbsp;&nbsp;return (1-t)*2 * p0 + 2 * (1-t) * t * p1 + t*2 * p2
+                    </code>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Bloque de Servidor Web -->
+        <div class="block">
+            <div class="block-title">Servidor Web</div>
+            <div class="block-content">
+                <p>Manejo de solicitudes web para mover los servos.</p>
+                <div class="code-container">
+                    <code>
+                        def start_server():<br>
+                        &nbsp;&nbsp;server_socket = socket.socket()<br>
+                        &nbsp;&nbsp;server_socket.bind(('0.0.0.0', 80))<br>
+                        &nbsp;&nbsp;server_socket.listen(1)
+                    </code>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Bloque de Interfaz Gráfica -->
+        <div class="block">
+            <div class="block-title">Interfaz Gráfica</div>
+            <div class="block-content">
+                <p>Control de servos mediante sliders en la interfaz HTML.</p>
+                <div class="code-container">
+                    <code>
+                        const slider = document.createElement('input');<br>
+                        slider.type = 'range';<br>
+                        slider.min = -90;<br>
+                        slider.max = 90;<br>
+                        slider.oninput = () => fetch(/move_servo_hombro?angle=${slider.value});
+                    </code>
+                </div>
+            </div>
+        </div>
+    
+        <div>
+            <button onclick="regresarPaginaAnterior('page5', 'page4')" class="back-button">Regresar</button>
+            <button onclick="mostrarSiguientePagina('page5', 'page6')" class="next-button">Siguiente Página</button>
+        </div>
+    </div>
+    
+    <!-- Agrega el siguiente CSS -->
+    <style>
+        .block {
+            border: 2px solid #333;
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #f4f4f4;
+        }
+        .block-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .block-content {
+            margin-bottom: 20px;
+        }
+        .code-container {
+            background-color: #282c34;
+            color: #f8f8f2;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+        }
+    </style>
+
+   <!-- PAgina 6 -->
+<div class="next-page-container" id="page6">
+
+
+    <h1>Diagrama de bloques OLED</h1>
+
+    <!-- Bloque de Conexión Wi-Fi -->
+    <div class="block">
+        <div class="block-title">Conexión Wi-Fi</div>
+        <div class="block-content">
+            <p>Conexión a la red Wi-Fi utilizando las credenciales definidas.</p>
+            <div class="code-container">
+                <code>
+                    wlan = network.WLAN(network.STA_IF)<br>
+                    wlan.active(True)<br>
+                    wlan.connect('FLIA RUBIANO_2G-Etb', '3105807039')<br>
+                    while not wlan.isconnected():<br>
+                    &nbsp;&nbsp;time.sleep(1)
+                </code>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bloque de Control de Servos -->
+    <div class="block">
+        <div class="block-title">Control de Servos</div>
+        <div class="block-content">
+            <p>Control de los servos del hombro y codo utilizando señales PWM.</p>
+            <div class="code-container">
+                <code>
+                    servo_hombro = machine.PWM(machine.Pin(0))<br>
+                    servo_codo = machine.PWM(machine.Pin(1))<br>
+                    servo_hombro.freq(50)<br>
+                    servo_codo.freq(50)<br>
+                    def move_servo_hombro(angle):<br>
+                    &nbsp;&nbsp;servo_hombro.duty_u16(map_angle_to_duty(-angle + 90, 8192))<br>
+                    def move_servo_codo(angle):<br>
+                    &nbsp;&nbsp;servo_codo.duty_u16(map_angle_to_duty(angle - 90, 8192))
+                </code>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bloque de Función de Mapeo de Ángulos -->
+    <div class="block">
+        <div class="block-title">Función de Mapeo de Ángulos</div>
+        <div class="block-content">
+            <p>Función que mapea el ángulo del servo a un valor de duty.</p>
+            <div class="code-container">
+                <code>
+                    def map_angle_to_duty(angle, max_duty):<br>
+                    &nbsp;&nbsp;return int((angle / 180) * max_duty)
+                </code>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bloque de Actualización de Pantalla OLED -->
+    <div class="block">
+        <div class="block-title">Actualización de Pantalla OLED</div>
+        <div class="block-content">
+            <p>Actualiza la visualización de los ángulos de los servos en la pantalla OLED.</p>
+            <div class="code-container">
+                <code>
+                    def update_oled(hombro_angle, codo_angle):<br>
+                    &nbsp;&nbsp;oled.fill(0)<br>
+                    &nbsp;&nbsp;base_x, base_y = 64, 32<br>
+                    &nbsp;&nbsp;hombro_x = base_x + int(20 * math.sin(math.radians(-hombro_angle)))<br>
+                    &nbsp;&nbsp;hombro_y = base_y - int(20 * math.cos(math.radians(-hombro_angle)))<br>
+                    &nbsp;&nbsp;codo_x = hombro_x + int(20 * math.sin(math.radians(codo_angle)))<br>
+                    &nbsp;&nbsp;codo_y = hombro_y - int(20 * math.cos(math.radians(codo_angle)))<br>
+                    &nbsp;&nbsp;oled.line(base_x, base_y, hombro_x, hombro_y, 1)<br>
+                    &nbsp;&nbsp;oled.line(hombro_x, hombro_y, codo_x, codo_y, 1)<br>
+                    &nbsp;&nbsp;oled.show()
+                </code>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bloque de Servidor Web -->
+    <div class="block">
+        <div class="block-title">Servidor Web</div>
+        <div class="block-content">
+            <p>Manejo de solicitudes web para mover los servos.</p>
+            <div class="code-container">
+                <code>
+                    def handle_request(client):<br>
+                    &nbsp;&nbsp;request = client.recv(1024)<br>
+                    &nbsp;&nbsp;request_str = request.decode('utf-8')<br>
+                    &nbsp;&nbsp;if 'GET / ' in request_str:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;client.send('HTTP/1.1 200 OK\r\n...')
+                </code>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bloque de HTML para Modelo en Three.js -->
+    <div class="block">
+        <div class="block-title">HTML para Modelo en Three.js</div>
+        <div class="block-content">
+            <p>Renderización del modelo 3D del brazo en la interfaz web.</p>
+            <div class="code-container">
+                <code>
+                    &lt;!DOCTYPE html&gt;<br>
+                    &lt;html lang="es"&gt;<br>
+                    &lt;head&gt;<br>
+                    &nbsp;&nbsp;&lt;meta charset="UTF-8"&gt;<br>
+                    &nbsp;&nbsp;&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"&gt;&lt;/script&gt;<br>
+                    &nbsp;&nbsp;&lt;style&gt;body { margin: 0; background-color: black; } canvas { display: block; } .controls { position: absolute; bottom: 20px; right: 20px; background: rgba(220, 220, 220, 0.9); border: 1px solid #ccc; border-radius: 8px; padding: 15px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); }&lt;/style&gt;<br>
+                    &lt;/head&gt;<br>
+                    &lt;body&gt;<br>
+                    &nbsp;&nbsp;const scene = new THREE.Scene();<br>
+                    &nbsp;&nbsp;const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);<br>
+                    &nbsp;&nbsp;const renderer = new THREE.WebGLRenderer({ antialias: true });<br>
+                    &nbsp;&nbsp;renderer.setSize(window.innerWidth, window.innerHeight);<br>
+                    &nbsp;&nbsp;document.body.appendChild(renderer.domElement);<br>
+                    &nbsp;&nbsp;const base = new THREE.Mesh(new THREE.BoxGeometry(3, 0.5, 3), new THREE.MeshPhongMaterial({ color: 0x8B4513 }));<br>
+                    &nbsp;&nbsp;scene.add(base);<br>
+                    &nbsp;&nbsp;function animate() {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;requestAnimationFrame(animate);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;renderer.render(scene, camera);<br>
+                    &nbsp;&nbsp;}<br>
+                    &nbsp;&nbsp;animate();<br>
+                    &lt;/body&gt;<br>
+                    &lt;/html&gt;
+                </code>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <button onclick="regresarPaginaAnterior('page6', 'page5')" class="back-button">Regresar</button>
+        <button onclick="mostrarSiguientePagina('page6', 'page7')" class="next-button">Siguiente Página</button>
+    </div>
+</div>
+
+<!-- Estilo CSS -->
+<style>
+    .block {
+        border: 2px solid #333;
+        margin: 20px 0;
+        padding: 15px;
+        border-radius: 8px;
+        background-color: #f4f4f4;
+    }
+    .block-title {
+        font-size: 1.5em;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .block-content {
+        margin-bottom: 20px;
+    }
+    .code-container {
+        background-color: #282c34;
+        color: #f8f8f2;
+        padding: 10px;
+        border-radius: 5px;
+        overflow-x: auto;
+    }
+    code {
+        font-family: 'Courier New', monospace;
+        white-space: pre-wrap;
+    }
+</style>
+
+<div class="next-page-container" id="page7">
+    <h1>Segunda parte del proyecto</h1> 
+    <p>Ya logramos sincronizar los servos con un gemelo virtual y asi logramos moverlo con sladers, pero ahora buscamos hacer que el brazo recoja los elementos electrónicos, además de hacer que se mueva solo.</p>
+    <p>Para ello agregamos 3 nuevos elementos, a la vez que nos olvidamos por ahora del gemelo virtual</p>
+    <h1>Electroiman</h1> 
+    <p>Este elemento tiene el objetivo de recoger y soltar los diferentes elementos electrónicos, esto lo logra a traves del acercamiento a dichos elementos,</p>
+    <p>estando cerca de los elementos los atrae a través del voltaje que le llega, lo que hace que funcione propiamente como un imán atrayendo los objetos metálicos,</p>
+    <p>y cuando se le deja de suministrar voltaje este deja de actuar como imán, soltando los propios elementos metálicos</p>
+    <h1>Rele</h1> 
+    <p>Tiene el objetivo de controlar cuando se le suministra voltaje al electroimán, para que asi recoja y suelte los elementos en determinados intervalos</p>
+    <h1>Camara OV7670</h1> 
+    <p>Su principal objetivo es detectar a los elementos electrónicos a través de colores, para que sincronizada con los servos pueda hacer que el brazo vaya hasta la posicion donde se encuentra el objeto y recogerlo, llevandolo hasta alguna caja.</p>
+    <p>A continuación se muestra un video de los 3 elementos actuando en conjunto para recoger un led:</p>
+    <div class="image-container">
+        <video width="50%" controls>
+            <source src="brazo2.mp4" type="video/mp4">
+            Tu navegador no soporta la etiqueta de video.
+        </video> </div>
+    <div class="button-container">
+        <button onclick="regresarPaginaAnterior('page7', 'page6')" class="back-button">Regresar</button>
+        <button onclick="mostrarSiguientePagina('page7', 'page8')" class="next-button">Siguiente Página</button>
+    </div>
+</div>
+
+
+<div class="next-page-container" id="page8">
+    <h1>Diagrama de Bloques - Control y Cámara</h1>
+
+    <!-- Bloque de Configuración de Servomotores -->
+    <div class="block">
+        <div class="block-title">Configuración de Servomotores</div>
+        <div class="block-content">
+            <p>Configuración de los pines PWM para el control de los servomotores del hombro y codo.</p>
+            <div class="code-container">
+                <code>
+                    pwm_servo1 = pwmio.PWMOut(board.GP10, duty_cycle=0, frequency=50)  # Hombro<br>
+                    pwm_servo2 = pwmio.PWMOut(board.GP11, duty_cycle=0, frequency=50)  # Codo
+                </code>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bloque de Configuración del Relé -->
+    <div class="block">
+        <div class="block-title">Configuración del Relé</div>
+        <div class="block-content">
+            <p>Inicialización del relé para el control del electroimán.</p>
+            <div class="code-container">
+                <code>
+                    rele = digitalio.DigitalInOut(board.GP16)<br>
+                    rele.direction = digitalio.Direction.OUTPUT
+                </code>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bloque de Definición de Duty Cycle -->
+    <div class="block">
+        <div class="block-title">Definición de Duty Cycle</div>
+        <div class="block-content">
+            <p>Valores de duty cycle para el control del rango de movimiento de los servomotores.</p>
+            <div class="code-container">
+                <code>
+                    min_duty = 1638  # ~0° (1 ms de pulso)<br>
+                    max_duty = 8192  # ~180° (2 ms de pulso)
+                </code>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bloque de Configuración de la Cámara -->
+    <div class="block">
+        <div class="block-title">Configuración de la Cámara OV7670</div>
+        <div class="block-content">
+            <p>Inicialización y configuración de la cámara OV7670.</p>
+            <div class="code-container">
+                <code>
+                    cam1 = CAM(<br>
+                    &nbsp;&nbsp;d0_d7pinslist=[board.GP0, board.GP1, board.GP2, board.GP3, board.GP4, board.GP5, board.GP6, board.GP7],<br>
+                    &nbsp;&nbsp;plk=board.GP8,<br>
+                    &nbsp;&nbsp;xlk=board.GP9,<br>
+                    &nbsp;&nbsp;sda=board.GP12,<br>
+                    &nbsp;&nbsp;scl=board.GP13,<br>
+                    )
+                </code>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bloque de Funcionamiento del Sistema -->
+    <div class="block">
+        <div class="block-title">Funcionamiento del Sistema</div>
+        <div class="block-content">
+            <p>
+                El sistema recibe comandos para mover los servomotores y activar o desactivar el electroimán mediante el relé. 
+                La cámara OV7670 captura imágenes en tiempo real y las transmite para su procesamiento. 
+                El control del brazo robótico se basa en la conversión de los ángulos recibidos a valores de duty cycle 
+                para los servomotores, permitiendo movimientos suaves y precisos.
+            </p>
+            <div class="code-container">
+                <code>
+                    def mover_servo(pwm, angulo):<br>
+                    &nbsp;&nbsp; duty = min_duty + (angulo / 180) * (max_duty - min_duty)<br>
+                    &nbsp;&nbsp; pwm.duty_cycle = int(duty)<br><br>
+                    def activar_rele(estado):<br>
+                    &nbsp;&nbsp; rele.value = estado  # True para encender, False para apagar
+                </code>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <button onclick="regresarPaginaAnterior('page8', 'page7')" class="back-button">Regresar</button>
+        <button onclick="mostrarSiguientePagina('page8', 'page9')" class="next-button">Siguiente Página</button>
+    </div>
+</div>
+
+<!-- Estilo CSS -->
+<style>
+    .block {
+        border: 2px solid #333;
+        margin: 20px 0;
+        padding: 15px;
+        border-radius: 8px;
+        background-color: #f4f4f4;
+    }
+    .block-title {
+        font-size: 1.5em;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .block-content {
+        margin-bottom: 20px;
+    }
+    .code-container {
+        background-color: #282c34;
+        color: #f8f8f2;
+        padding: 10px;
+        border-radius: 5px;
+        overflow-x: auto;
+    }
+    code {
+        font-family: 'Courier New', monospace;
+        white-space: pre-wrap;
+    }
+</style>
+
+<div class="next-page-container" id="page9">
+    <h1>Video resumen de la primera parte del proyecto</h1> 
+    <a href="https://www.canva.com/design/DAGTx-O63AM/cihfhWPf6svmXkyankfxRA/watch?utm_content=DAGTx-O63AM&utm_campaign=designshare&utm_medium=link&utm_source=editor" target="_blank">https://www.canva.com/design/DAGTx-O63AM/cihfhWPf6svmXkyankfxRA/watch?utm_content=DAGTx-O63AM&utm_campaign=designshare&utm_medium=link&utm_source=editor</a>
+        <h1>Montaje de la segunda parte del proyecto</h1>
+        <div class="image-container"> <img src="brazo3.jpg" alt="Sincronización" style="max-width: 400px; height: auto;"></div>
+    <div class="button-container">
+        <button onclick="regresarPaginaAnterior('page9', 'page8')" class="back-button">Regresar</button>
+    </div>
+</div>
+
+     
+    <script>
+        function mostrarSiguientePagina(actualPage, nextPage) {
+            document.getElementById(actualPage).style.display = 'none';
+            document.getElementById(nextPage).style.display = 'block';
+            if (nextPage !== 'page1') document.getElementById("brazo1").style.display = 'none';
+            else document.getElementById("brazo1").style.display = 'flex';
+        }
+        function regresarPaginaAnterior(actualPage, prevPage) {
+            document.getElementById(actualPage).style.display = 'none';
+            document.getElementById(prevPage).style.display = 'block';
+            if (prevPage === 'page1') document.getElementById("brazo1").style.display = 'flex';
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
